@@ -9,22 +9,15 @@
     <script>
       function ordenarTiposDeDatos(arreglo) {
         const resultado = {
-          //strings: [],
           numeros: [],
-          //bools: [],
         };
 
         function ordenarElementos(elemento) {
           if (typeof elemento === "number") {
             resultado.numeros.push(elemento);
-          } /*else if (typeof elemento === "string") {
-            resultado.strings.push(elemento);
-          } else if (typeof elemento === "boolean") {
-            resultado.bools.push(elemento);
-          } */ else if (Array.isArray(elemento)) {
+          } else if (Array.isArray(elemento)) {
             elemento.forEach(ordenarElementos);
           }
-          
         }
 
         arreglo.forEach(ordenarElementos);
@@ -32,10 +25,30 @@
         return resultado;
       }
 
+      function ordenarDeMayorAMenor(arr) {
+        let longitud = arr.length;
+        let ordenado;
+
+        do {
+          ordenado = true;
+          for (let i = 0; i < longitud - 1; i++) {
+            if (arr[i] < arr[i + 1]) {
+              // Intercambiar elementos si están en el orden incorrecto
+              [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+              ordenado = false;
+            }
+          }
+        } while (!ordenado);
+
+        return arr;
+      }
+
       const ejemploArreglo = ["unacadena", 3, 9, 1, 10, 500, 1, 10, true];
       const resultadoOrdenado = ordenarTiposDeDatos(ejemploArreglo);
+      //console.log(resultadoOrdenado);
 
-      console.log(resultadoOrdenado);
+      const arregloOrdenadoDeMayorAMenor = ordenarDeMayorAMenor(resultadoOrdenado.numeros);
+      console.log(arregloOrdenadoDeMayorAMenor);
     </script>
   </body>
 </html>
