@@ -4,6 +4,6 @@
 
 Cindy Yazán
 
-correo: cindyk.20@hotmail.com
+correo ecommerce: cindyk.20@hotmail.com
 
-correo plataforma ecommerce: cindyyazan.20@gmail.com
+correo github: cindyyazan.20@gmail.com
